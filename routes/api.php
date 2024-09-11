@@ -9,8 +9,8 @@ Route::get('/user', function (Request $request) {
 
 //GUEST ROUTES
 Route::middleware('guest')->group(function () {
-    Route::post('register', [App\Http\Controllers\UserController::class, 'register']);
-    Route::post('login', [App\Http\Controllers\UserController::class, 'login']);
+    Route::post('register', [App\Http\Controllers\AuthController::class, 'register']);
+    Route::post('login', [App\Http\Controllers\AuthController::class, 'login']);
 });
 
 //ROUTES WITH TOKEN
