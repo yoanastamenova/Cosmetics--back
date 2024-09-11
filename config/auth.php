@@ -36,11 +36,11 @@ return [
     */
 
     'guards' => [
-        'api' => [
-            'driver' => 'passport',
-            'provider' => 'users',
-        ],
+    'api' => [
+        'driver' => 'jwt',
+        'provider' => 'users',
     ],
+],
 
     /*
     |--------------------------------------------------------------------------

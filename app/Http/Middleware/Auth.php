@@ -15,13 +15,11 @@ class Auth
      */
     public function handle(Request $request, Closure $next): Response
     {
-                         {
-                             if($request->user === 'true')
-                             {
-                                 return $next($request);
-                             }
-                             return response()->json('Not authorized!', 401);
-                         }
-
+        if (auth()->check() && auth()->user()->role === $role) {
+            return $next($request);
+        }
+    
+        return response()->json(['error' => 'Not authorized'], 403);
     }
+
 }
