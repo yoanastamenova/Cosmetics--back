@@ -5,7 +5,7 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
-use Laravel\Passport\HasApiTokens; 
+use Laravel\Passport\HasApiTokens;
 
 class User extends Authenticatable
 {
@@ -20,6 +20,7 @@ class User extends Authenticatable
         'name',
         'email',
         'password',
+        'role', 
     ];
 
     /**
@@ -40,6 +41,38 @@ class User extends Authenticatable
     protected $casts = [
         'email_verified_at' => 'datetime',
     ];
+    
+    /**
+     * Create a new model instance.
+     *
+     * @param  array  $attributes
+     * @return void
+     */
+    public function __construct(array $attributes = [])
+    {
+        parent::__construct($attributes);
+        $this->attributes['role'] = $this->attributes['role'] ?? 'user'; 
+    }
+
+    /**
+     * Checks if user is admin.
+     * 
+     * @return bool
+     */
+    public function isAdmin()
+    {
+        return $this->role === 'admin';
+    }
+
+    /**
+     * Checks if user is super admin.
+     * 
+     * @return bool
+     */
+    public function isSuperAdmin()
+    {
+        return $this->role === 'super_admin';
+    }
 
     /**
      * Generate a personal access token for this user.

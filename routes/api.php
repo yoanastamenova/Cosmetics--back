@@ -19,3 +19,6 @@ Route::middleware('auth:api')->group(function () {
         return $request->user();
     });
 });
+
+//ROUTES WITH ADMIN ROLE
+Route::get('/task_middleware',[TaskController::class,'exampleMiddleware'])->middleware('Auth');
