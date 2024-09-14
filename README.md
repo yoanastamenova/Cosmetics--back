@@ -6,7 +6,7 @@ This project provides a REST API to manage a cosmetics store backend. It include
 **User role management with middleware**: Restrict access to specific functionalities based on user roles.
 **CRUD operations for different models:** Create, read, update, and delete resources related to various data models, such as products and orders.
 
-  <img src="https://i.giphy.com/media/v1.Y2lkPTc5MGI3NjExMm5iOWJ6ZHpoaWdscWgzemUxbjYwbjk1a3I3ZGRjcmFocXJlMWQ1diZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/nmbk2prARJTrGAd1qT/giphy.gif" alt="Giphy GIF" />
+  <img align="center" src="https://i.giphy.com/media/v1.Y2lkPTc5MGI3NjExMm5iOWJ6ZHpoaWdscWgzemUxbjYwbjk1a3I3ZGRjcmFocXJlMWQ1diZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/nmbk2prARJTrGAd1qT/giphy.gif" alt="Giphy GIF" />
 
 
 
@@ -19,9 +19,7 @@ Technologies used:
 **Users to Orders:** One-to-many relationship, where one user can have many orders. <br>
 **Products to Orders:** One-to-many relationship, where one product can be part of many orders.
 
-<div align="center">
-  [![Captura-de-pantalla-2024-09-14-a-la-s-13-50-02.png](https://i.postimg.cc/7PQL3vCs/Captura-de-pantalla-2024-09-14-a-la-s-13-50-02.png)](https://i.postimg.cc/7PQL3vCs/Captura-de-pantalla-2024-09-14-a-la-s-13-50-02.png)
-</div>
+<img align="center" src="https://i.postimg.cc/QCBKQjjD/Captura-de-pantalla-2024-09-14-a-la-s-13-50-02.png" alt="database schema">
 
 
 ## 🌐 Endpoints 
