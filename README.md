@@ -20,7 +20,7 @@ Technologies used:
 **Products to Orders:** One-to-many relationship, where one product can be part of many orders.
 
 <a href="https://ibb.co/2sQXgC3">
-  <img src="https://i.ibb.co/3MqtBjm/Captura-de-pantalla-2024-09-14-a-la-s-13-50-02.png" alt="Captura-de-pantalla-2024-09-14-a-la-s-13-50-02" border="0">
+  <img src="./assets/img/database_diagram.png" alt="database_diagram"/>
 </a>
 
 
