@@ -6,9 +6,8 @@ This project provides a REST API to manage a cosmetics store backend. It include
 **User role management with middleware**: Restrict access to specific functionalities based on user roles.
 **CRUD operations for different models:** Create, read, update, and delete resources related to various data models, such as products and orders.
 
-<div style="text-align: center;">
-  <iframe src="https://giphy.com/embed/nmbk2prARJTrGAd1qT" width="480" height="480" style="" frameBorder="0" class="giphy-embed" allowFullScreen></iframe>
-  <p><a href="https://giphy.com/gifs/BBareCosmetics-bbare-tara-maynard-x-nmbk2prARJTrGAd1qT">via GIPHY</a></p>
+<div align="center">
+  <img src="https://giphy.com/embed/nmbk2prARJTrGAd1qT" alt="cosmetics giph"></img>
 </div>
 
 
@@ -68,7 +67,7 @@ Technologies used:
 | DELETE | /orders/{id} | Delete order by ID | Token (user) | N/A                                                 |
 
 
-## Local Installation🧾
+## 🧾 Local Installation
 Install Docker and create a MySQL container.
 Clone the repository.
 Run $ composer install.
@@ -78,9 +77,7 @@ Run $ php artisan db:seed.
 Start the server with $ php artisan serve.
 
 
-## Development💻
+## 💻 Development
 ```const developers = ["Yoana", "Morena"];
-
-console.log("Developed by: " + developers.join(" and "));
-```
+console.log("Developed by: " + developers.join(" and "));```
 
