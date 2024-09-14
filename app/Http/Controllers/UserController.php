@@ -46,7 +46,7 @@ class UserController extends Controller
         if ($userRole === 'admin') {
             $user = User::find($id);
             $user->delete();
-            return response()->json(['message' => 'User deleted successfully']);
+            return response()->json(['message' => 'User deleted correctly']);
         }
         if ($userId != $id) {
             return response()->json(['error' => 'You are not authorized to delete this user'], 403);
@@ -54,6 +54,6 @@ class UserController extends Controller
         
         $user = User::find($id);
         $user->delete();
-        return response()->json(['message' => 'User deleted successfully']);
+        return response()->json(['message' => 'User deleted correctly']);
     }
 }

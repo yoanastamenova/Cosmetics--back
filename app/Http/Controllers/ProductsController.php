@@ -2,10 +2,10 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\services;
-use App\Http\Requests\StoreservicesRequest;
-use App\Http\Requests\UpdateservicesRequest;
 use App\Models\products;
+use App\Http\Requests\StoreproductsRequest;
+use App\Http\Requests\UpdateproductsRequest;
+
 class ProductsController extends Controller
 {
     /**
