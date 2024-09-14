@@ -7,7 +7,7 @@ This project provides a REST API to manage a cosmetics store backend. It include
 **CRUD operations for different models:** Create, read, update, and delete resources related to various data models, such as products and orders.
 
 <div align="center">
-  <img src="https://i.giphy.com/media/v1.Y2lkPTc5MGI3NjExMm5iOWJ6ZHpoaWdscWgzemUxbjYwbjk1a3I3ZGRjcmFocXJlMWQ1diZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/nmbk2prARJTrGAd1qT/giphy.gif" alt="cosmetics giph"></img>
+  <img src="https://i.giphy.com/media/v1.Y2lkPTc5MGI3NjExMm5iOWJ6ZHpoaWdscWgzemUxbjYwbjk1a3I3ZGRjcmFocXJlMWQ1diZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/nmbk2prARJTrGAd1qT/giphy.gif" alt="Giphy GIF" />
 </div>
 
 
@@ -17,11 +17,11 @@ Technologies used:
 <div align="center"> <a> <img src= "https://img.shields.io/badge/PHP-777BB4?style=for-the-badge&logo=php&logoColor=white" alt="php" /> </a> <a> <img src= "https://img.shields.io/badge/Laravel-FF2D20?style=for-the-badge&logo=laravel&logoColor=white" alt="laravel" /> </a> <a> <img src= "https://img.shields.io/badge/Composer-885630?style=for-the-badge&logo=Composer&logoColor=white" alt="composer" /> </a> <a> <img src="https://img.shields.io/badge/MySQL-4479A1?style=for-the-badge&logo=mysql&logoColor=white" alt="MySQL" /> </a> <a> <img src="https://img.shields.io/badge/Docker-2496ED?style=for-the-badge&logo=docker&logoColor=white" alt="docker" /> </a> </div>
 
 ## 🗄️ Database Schema
-**Users to Orders:** One-to-many relationship, where one user can have many orders.
+**Users to Orders:** One-to-many relationship, where one user can have many orders. <br>
 **Products to Orders:** One-to-many relationship, where one product can be part of many orders.
 
-<div style="text-align: center;">
-  [![Captura-de-pantalla-2024-09-14-a-la-s-13-50-02.png](https://i.postimg.cc/7PQL3vCs/Captura-de-pantalla-2024-09-14-a-la-s-13-50-02.png)](https://postimg.cc/K4BFbHDB)
+<div align="center">
+  [![Captura-de-pantalla-2024-09-14-a-la-s-13-50-02.png](https://i.postimg.cc/7PQL3vCs/Captura-de-pantalla-2024-09-14-a-la-s-13-50-02.png)](https://i.postimg.cc/7PQL3vCs/Captura-de-pantalla-2024-09-14-a-la-s-13-50-02.png)
 </div>
 
 
@@ -78,7 +78,7 @@ Start the server with $ php artisan serve.
 
 
 ## 💻 Development
-
-`const developers = ["Yoana", "Morena"];`
+<br>
+`const developers = ["Yoana", "Morena"];`<br>
 `console.log("Developed by: " + developers.join(" and "));`
 
