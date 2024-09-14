@@ -1,66 +1,86 @@
-<p align="center"><a href="https://laravel.com" target="_blank"><img src="https://raw.githubusercontent.com/laravel/art/master/logo-lockup/5%20SVG/2%20CMYK/1%20Full%20Color/laravel-logolockup-cmyk-red.svg" width="400" alt="Laravel Logo"></a></p>
+# Cosmetics Backend 💄
+This project provides a REST API to manage a cosmetics store backend. It includes functionality for:
 
-<p align="center">
-<a href="https://github.com/laravel/framework/actions"><img src="https://github.com/laravel/framework/workflows/tests/badge.svg" alt="Build Status"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/dt/laravel/framework" alt="Total Downloads"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/v/laravel/framework" alt="Latest Stable Version"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/l/laravel/framework" alt="License"></a>
-</p>
+**User registration:** Register new users in the application.
+**User login with token authentication and middleware:** Ensure secure access using tokens and Laravel middleware.
+**User role management with middleware**: Restrict access to specific functionalities based on user roles.
+**CRUD operations for different models:** Create, read, update, and delete resources related to various data models, such as products and orders.
 
-## About Laravel
+<div style="text-align: center;">
+  <iframe src="https://giphy.com/embed/nmbk2prARJTrGAd1qT" width="480" height="480" style="" frameBorder="0" class="giphy-embed" allowFullScreen></iframe>
+  <p><a href="https://giphy.com/gifs/BBareCosmetics-bbare-tara-maynard-x-nmbk2prARJTrGAd1qT">via GIPHY</a></p>
+</div>
 
-Laravel is a web application framework with expressive, elegant syntax. We believe development must be an enjoyable and creative experience to be truly fulfilling. Laravel takes the pain out of development by easing common tasks used in many web projects, such as:
 
-- [Simple, fast routing engine](https://laravel.com/docs/routing).
-- [Powerful dependency injection container](https://laravel.com/docs/container).
-- Multiple back-ends for [session](https://laravel.com/docs/session) and [cache](https://laravel.com/docs/cache) storage.
-- Expressive, intuitive [database ORM](https://laravel.com/docs/eloquent).
-- Database agnostic [schema migrations](https://laravel.com/docs/migrations).
-- [Robust background job processing](https://laravel.com/docs/queues).
-- [Real-time event broadcasting](https://laravel.com/docs/broadcasting).
+## ⚙️ Stack
+Technologies used:
 
-Laravel is accessible, powerful, and provides tools required for large, robust applications.
+<div align="center"> <a> <img src= "https://img.shields.io/badge/PHP-777BB4?style=for-the-badge&logo=php&logoColor=white" alt="php" /> </a> <a> <img src= "https://img.shields.io/badge/Laravel-FF2D20?style=for-the-badge&logo=laravel&logoColor=white" alt="laravel" /> </a> <a> <img src= "https://img.shields.io/badge/Composer-885630?style=for-the-badge&logo=Composer&logoColor=white" alt="composer" /> </a> <a> <img src="https://img.shields.io/badge/MySQL-4479A1?style=for-the-badge&logo=mysql&logoColor=white" alt="MySQL" /> </a> <a> <img src="https://img.shields.io/badge/Docker-2496ED?style=for-the-badge&logo=docker&logoColor=white" alt="docker" /> </a> </div>
 
-## Learning Laravel
+## 🗄️ Database Schema
+**Users to Orders:** One-to-many relationship, where one user can have many orders.
+**Products to Orders:** One-to-many relationship, where one product can be part of many orders.
 
-Laravel has the most extensive and thorough [documentation](https://laravel.com/docs) and video tutorial library of all modern web application frameworks, making it a breeze to get started with the framework.
+<div style="text-align: center;">
+  [![Captura-de-pantalla-2024-09-14-a-la-s-13-50-02.png](https://i.postimg.cc/7PQL3vCs/Captura-de-pantalla-2024-09-14-a-la-s-13-50-02.png)](https://postimg.cc/K4BFbHDB)
+</div>
 
-You may also try the [Laravel Bootcamp](https://bootcamp.laravel.com), where you will be guided through building a modern Laravel application from scratch.
 
-If you don't feel like reading, [Laracasts](https://laracasts.com) can help. Laracasts contains thousands of video tutorials on a range of topics including Laravel, modern PHP, unit testing, and JavaScript. Boost your skills by digging into our comprehensive video library.
+## 🌐 Endpoints 
 
-## Laravel Sponsors
+### 🔒 Authentication
 
-We would like to extend our thanks to the following sponsors for funding Laravel development. If you are interested in becoming a sponsor, please visit the [Laravel Partners program](https://partners.laravel.com).
+| Method | URI       | Action         | Auth                | Body                                                                                   |
+|--------|-----------|----------------|---------------------|----------------------------------------------------------------------------------------|
+| POST   | /register  | Register user  | N/A (public)        | `{ "name": "userName", "last_name": "userLastName", "email": "userEmail", "password": "userPassword" }` |
+| POST   | /login     | Login user     | N/A (public)        | `{ "email": "userEmail", "password": "userPassword" }`                                |
+| POST   | /logout    | Logout user    | Token (user)        | N/A                                                                                    |
 
-### Premium Partners
+### 👤 Users
 
-- **[Vehikl](https://vehikl.com/)**
-- **[Tighten Co.](https://tighten.co)**
-- **[WebReinvent](https://webreinvent.com/)**
-- **[Kirschbaum Development Group](https://kirschbaumdevelopment.com)**
-- **[64 Robots](https://64robots.com)**
-- **[Curotec](https://www.curotec.com/services/technologies/laravel/)**
-- **[Cyber-Duck](https://cyber-duck.co.uk)**
-- **[DevSquad](https://devsquad.com/hire-laravel-developers)**
-- **[Jump24](https://jump24.co.uk)**
-- **[Redberry](https://redberry.international/laravel/)**
-- **[Active Logic](https://activelogic.com)**
-- **[byte5](https://byte5.de)**
-- **[OP.GG](https://op.gg)**
+| Method | URI           | Action              | Auth      | Body                                                                                   |
+|--------|---------------|---------------------|-----------|----------------------------------------------------------------------------------------|
+| GET    | /users        | View all users      | Token (user) | N/A                                                                                    |
+| GET    | /users/{id}   | View user by ID     | Token (user) | N/A                                                                                    |
+| PUT    | /users/{id}   | Update user by ID   | Token (user) | `{ "name": "newName", "last_name": "newLastName", "email": "newEmail" }`            |
+| DELETE | /users/{id}   | Delete user by ID   | Token (user) | N/A                                                                                    |
+| GET    | /admin        | Welcome message     | Token (admin) | N/A                                                                                    |
+| GET    | /user/profile | View user profile   | Token (user) | N/A                                                                                    |
 
-## Contributing
+### 🛒 Products
 
-Thank you for considering contributing to the Laravel framework! The contribution guide can be found in the [Laravel documentation](https://laravel.com/docs/contributions).
+| Method | URI            | Action              | Auth        | Body                                                                                   |
+|--------|----------------|---------------------|-------------|----------------------------------------------------------------------------------------|
+| GET    | /products      | View all products   | N/A (public) | N/A                                                                                    |
+| POST   | /products      | Create product      | Token (admin) | `{ "product_name": "productName", "description": "productDescription" }`             |
+| GET    | /products/{id} | View product by ID  | N/A (public) | N/A                                                                                    |
+| PUT    | /products/{id} | Update product by ID | Token (admin) | `{ "product_name": "newProductName", "description": "newProductDescription" }`       |
+| DELETE | /products/{id} | Delete product by ID | Token (admin) | N/A                                                                                    |
 
-## Code of Conduct
+### 🛍️ Orders
 
-In order to ensure that the Laravel community is welcoming to all, please review and abide by the [Code of Conduct](https://laravel.com/docs/contributions#code-of-conduct).
+| Method | URI          | Action             | Auth      | Body                                                |
+|--------|--------------|--------------------|-----------|-----------------------------------------------------|
+| GET    | /orders      | View all orders    | Token (admin) | N/A                                                 |
+| POST   | /orders      | Create order       | Token (user) | `{ "order_details": "orderDetails" }`             |
+| GET    | /orders/{id} | View order by ID   | Token (user) | N/A                                                 |
+| PUT    | /orders/{id} | Update order by ID | Token (user) | `{ "order_details": "newOrderDetails" }`          |
+| DELETE | /orders/{id} | Delete order by ID | Token (user) | N/A                                                 |
 
-## Security Vulnerabilities
 
-If you discover a security vulnerability within Laravel, please send an e-mail to Taylor Otwell via [taylor@laravel.com](mailto:taylor@laravel.com). All security vulnerabilities will be promptly addressed.
+## Local Installation🧾
+Install Docker and create a MySQL container.
+Clone the repository.
+Run $ composer install.
+Connect the repository to the database.
+Run $ php artisan migrate.
+Run $ php artisan db:seed.
+Start the server with $ php artisan serve.
 
-## License
 
-The Laravel framework is open-sourced software licensed under the [MIT license](https://opensource.org/licenses/MIT).
+## Development💻
+```const developers = ["Yoana", "Morena"];
+
+console.log("Developed by: " + developers.join(" and "));
+```
+
