@@ -19,9 +19,9 @@ Technologies used:
 **Users to Orders:** One-to-many relationship, where one user can have many orders. <br>
 **Products to Orders:** One-to-many relationship, where one product can be part of many orders.
 
-<a href="https://ibb.co/2sQXgC3">
-  <img src="./assets/img/database_diagram.png" alt="database_diagram"/>
-</a>
+
+<img src="./assets/img/database_diagram.png" alt="database_diagram"/>
+
 
 
 
@@ -78,5 +78,5 @@ Start the server with $ php artisan serve.
 
 
 ## 💻 Development
-```const developers = ["Yoana", "Morena"];<br>
-console.log("Developed by: " + developers.join(" and "));```
+`const developers = ["Yoana", "Morena"];<br>`
+`console.log("Developed by: " + developers.join(" and "));`
