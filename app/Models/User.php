@@ -2,15 +2,16 @@
 
 namespace App\Models;
 
+// use Illuminate\Contracts\Auth\MustVerifyEmail;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
-use Laravel\Passport\HasApiTokens;
-use Tymon\JWTAuth\Contracts\JWTSubject;
+use Laravel\Sanctum\HasApiTokens;
+use App\Models\Orders;
 
 class User extends Authenticatable
 {
-    use HasFactory, Notifiable, HasApiTokens;
+    use HasApiTokens, HasFactory, Notifiable;
 
     /**
      * The attributes that are mass assignable.
@@ -19,9 +20,10 @@ class User extends Authenticatable
      */
     protected $fillable = [
         'name',
+        'last_name',
         'email',
         'password',
-        'role', 
+        'role',
     ];
 
     /**
@@ -35,65 +37,22 @@ class User extends Authenticatable
     ];
 
     /**
-     * The attributes that should be cast to native types.
+     * The attributes that should be cast.
      *
      * @var array<string, string>
      */
     protected $casts = [
         'email_verified_at' => 'datetime',
+        'password' => 'hashed',
     ];
-    
-    /**
-     * Create a new model instance.
-     *
-     * @param  array  $attributes
-     * @return void
-     */
 
-     public function getJWTIdentifier()
+    public function appointments()
     {
-        return $this->getKey();
+        return $this->hasMany(appointments::class, 'user_id');
     }
 
-    public function getJWTCustomClaims()
-    {
-        return ['role' => $this->role];
-    }
-    
-    public function __construct(array $attributes = [])
-    {
-        parent::__construct($attributes);
-        $this->attributes['role'] = $this->attributes['role'] ?? 'user'; 
-    }
-
-    /**
-     * Checks if user is admin.
-     * 
-     * @return bool
-     */
     public function isAdmin()
     {
         return $this->role === 'admin';
-    }
-
-    /**
-     * Checks if user is super admin.
-     * 
-     * @return bool
-     */
-    public function isSuperAdmin()
-    {
-        return $this->role === 'super_admin';
-    }
-
-    /**
-     * Generate a personal access token for this user.
-     *
-     * @return string
-     */
-    public function generateToken()
-    {
-        $token = $this->createToken('Personal Access Token')->accessToken;
-        return $token;
     }
 }

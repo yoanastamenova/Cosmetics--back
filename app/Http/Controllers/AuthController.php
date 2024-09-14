@@ -2,53 +2,69 @@
 
 namespace App\Http\Controllers;
 
-use Illuminate\Http\Request;
 use App\Models\User;
+use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
-use Illuminate\Support\Facades\Validator;
 use Illuminate\Support\Facades\Hash;
+use Illuminate\Validation\ValidationException;
 
 class AuthController extends Controller
 {
     public function register(Request $request)
-{
-    // Validate input data
-    $validator = Validator::make($request->all(), [
-        'name' => 'required|string|max:255',
-        'email' => 'required|string|email|max:255|unique:users',
-        'password' => 'required|string|min:6|confirmed',
-    ]);
+    {
+        $request->validate([
+            'name' => 'required|string|max:255',
+            'last_name' => 'required|string|max:255',
+            'email' => 'required|string|email|max:255|unique:users',
+            'password' => 'required|string|min:8|confirmed',
+        ]);
 
-    if ($validator->fails()) {
-        return response()->json(['error' => $validator->errors()], 401);
+        $user = User::create([
+            'name' => $request->name,
+            'last_name' => $request->last_name,
+            'email' => $request->email,
+            'password' => Hash::make($request->password),
+            'role' => 'user',
+        ]);
+
+        $token = $user->createToken('auth_token')->plainTextToken;
+
+        return response()->json([
+            'access_token' => $token,
+            'token_type' => 'Bearer',
+        ]);
     }
-
-    // Create user record in the database
-    $user = User::create([
-        'name' => $request->name,
-        'email' => $request->email,
-        'password' => Hash::make($request->password),
-    ]);
-
-    // Return success response
-    return response()->json(['message' => 'User registered successfully'], 201);
-}
 
     public function login(Request $request)
     {
-     $credentials = $request->only('email', 'password');
+        $request->validate([
+            'email' => 'required|string|email',
+            'password' => 'required|string',
+        ]);
 
-        if (Auth::attempt($credentials)) {
-            $user = Auth::user();
-            $success['token'] = $user->createToken('AppName')->accessToken;
-            $success['name'] = $user->name;
-            
-            return response()->json(['success' => $success], 200);
-        } else {
-            // Log failed login attempt
-            \Log::warning('Failed login attempt for user with email: ' . $request->email);
-    
-            return response()->json(['error' => 'Unauthorized - Check credentials and try again'], 401);
+        if (!Auth::attempt($request->only('email', 'password'))) {
+            throw ValidationException::withMessages([
+                'email' => ['The provided credentials are incorrect.'],
+            ]);
         }
+
+        $user = User::where('email', $request->email)->firstOrFail();
+
+        $token = $user->createToken('auth_token')->plainTextToken;
+
+        return response()->json([
+            'message' => 'Welcome ' . $user->name,
+            'access_token' => $token,
+            'token_type' => 'Bearer',
+        ]);
+    }
+
+    public function logout(Request $request)
+    {
+        $request->user()->tokens()->delete();
+
+        return response()->json([
+            'message' => 'Logged out successfully',
+        ]);
     }
 }
