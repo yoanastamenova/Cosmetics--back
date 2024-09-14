@@ -5,9 +5,9 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use App\Models\User;
-use App\Models\Products;
+use App\Models\product;
 
-class Orders extends Model
+class order extends Model
 {
     use HasFactory;
 
@@ -21,7 +21,7 @@ class Orders extends Model
         return $this->hasOne(User::class);
     }
 
-    public function products()
+    public function product()
     {
         return $this->hasOne(products::class);
     }
