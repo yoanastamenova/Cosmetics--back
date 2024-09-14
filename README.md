@@ -6,9 +6,8 @@ This project provides a REST API to manage a cosmetics store backend. It include
 **User role management with middleware**: Restrict access to specific functionalities based on user roles.
 **CRUD operations for different models:** Create, read, update, and delete resources related to various data models, such as products and orders.
 
-<div align="center">
   <img src="https://i.giphy.com/media/v1.Y2lkPTc5MGI3NjExMm5iOWJ6ZHpoaWdscWgzemUxbjYwbjk1a3I3ZGRjcmFocXJlMWQ1diZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/nmbk2prARJTrGAd1qT/giphy.gif" alt="Giphy GIF" />
-</div>
+
 
 
 ## ⚙️ Stack
@@ -78,7 +77,6 @@ Start the server with $ php artisan serve.
 
 
 ## 💻 Development
-<br>
-`const developers = ["Yoana", "Morena"];`<br>
-`console.log("Developed by: " + developers.join(" and "));`
+```const developers = ["Yoana", "Morena"];<br>
+console.log("Developed by: " + developers.join(" and "));```
 
