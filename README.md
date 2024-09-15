@@ -76,9 +76,7 @@ Start the server with $ php artisan serve.
 
 ## 💻 Developers
 
--   **Morena**
-      <a href="https://github.com/More-Pe" target="_blank"><img src="https://img.shields.io/badge/github-24292F?style=for-the-badge&logo=github&logoColor=red" target="_blank"></a>
+-   **Morena**   <a href="https://github.com/More-Pe" target="_blank"><img src="https://img.shields.io/badge/github-24292F?style=for-the-badge&logo=github&logoColor=red" target="_blank"></a>
 
--   **Yoana**  
-    <a href="https://github.com/yoanastamenova" target="_blank"><img src="https://img.shields.io/badge/github-24292F?style=for-the-badge&logo=github&logoColor=red" target="_blank"></a>
+-   **Yoana**    <a href="https://github.com/yoanastamenova" target="_blank"><img src="https://img.shields.io/badge/github-24292F?style=for-the-badge&logo=github&logoColor=red" target="_blank"></a>
 
